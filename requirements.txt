@@ -1,0 +1,9 @@
+flask
+flask-cors
+nltk
+PyPDF2
+google.generativeai
+python-dotenv
+googletrans==4.0.0-rc1
+fitz
+PyMuPDF
