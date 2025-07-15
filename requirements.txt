@@ -1,9 +1,8 @@
-flask
+Flask
 flask-cors
 nltk
-PyPDF2
-google.generativeai
-python-dotenv
-googletrans==4.0.0-rc1
-fitz
 PyMuPDF
+google-ai-generativelanguage>=0.6.16,<0.7.0
+python-dotenv
+googletrans==4.0.0rc1
+httpcore<0.16
