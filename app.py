@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from googletrans import Translator
+# from googletrans import Translator
 import nltk
 from nltk.corpus import wordnet
 import fitz
@@ -26,7 +26,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Initialize services
-translator = Translator()
+# translator = Translator()
 
 # Configure Gemini AI
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
@@ -87,23 +87,23 @@ def upload_file():
         except Exception as e:
             return jsonify({'error': True, 'message': str(e)})
 
-@app.route('/translate', methods=['POST'])
-def translate_text():
-    try:
-        data = request.get_json()
-        text = data.get('text', '')
-        target_lang = data.get('target_lang', 'en')
+# @app.route('/translate', methods=['POST'])
+# def translate_text():
+#     try:
+#         data = request.get_json()
+#         text = data.get('text', '')
+#         target_lang = data.get('target_lang', 'en')
         
-        if not text:
-            return jsonify({'error': True, 'message': 'No text provided'})
+#         if not text:
+#             return jsonify({'error': True, 'message': 'No text provided'})
         
-        translation = translator.translate(text, dest=target_lang)
-        return jsonify({
-            'translation': translation.text,
-            'error': False
-        })
-    except Exception as e:
-        return jsonify({'error': True, 'message': str(e)})
+#         translation = translator.translate(text, dest=target_lang)
+#         return jsonify({
+#             'translation': translation.text,
+#             'error': False
+#         })
+#     except Exception as e:
+#         return jsonify({'error': True, 'message': str(e)})
 
 @app.route('/define', methods=['POST'])
 def define_word():
